@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { InputParameters } from "./components/InputParameters";
 import { OutputVisualization } from "./components/OutputVisualization";
+import ReonicLogo from "./assets/reonic-logo.svg"; // Ensure the path is correct
 
 const AppContainer = styled.div`
-  padding: 2rem;
+  padding: 2rem 0;
   background-color: #f9f9f9;
   min-height: 100vh;
   display: flex;
@@ -13,9 +14,28 @@ const AppContainer = styled.div`
   align-items: center;
 `;
 
-const Header = styled.h1`
-  color: #333;
-  margin-bottom: 1.5rem;
+const Header = styled.header`
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ccc;
+
+  justify-content: space-between;
+`;
+
+const Logo = styled.img`
+  height: 1rem;
+`;
+
+const Footer = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ccc;
+  margin-top: auto;
 `;
 
 interface ParamsState {
@@ -34,12 +54,19 @@ const generateChargingData = (numChargepoints: number, chargePower: number) => {
   return chargingData;
 };
 
-const generateExemplaryDayData = (numChargepoints: number, arrivalMultiplier: number, carConsumption: number, chargePower: number) => {
+const generateExemplaryDayData = (
+  numChargepoints: number,
+  arrivalMultiplier: number,
+  carConsumption: number,
+  chargePower: number
+) => {
   const exemplaryDayData = [];
   const totalChargeCapacity = numChargepoints * chargePower;
 
   const arrivalProbabilities = [
-    0, 0, 0, 0.0094, 0.0094, 0.0094, 0.0094, 0.0094, 0.0283, 0.0283, 0.0566, 0.0566, 0.0566, 0.0755, 0.0755, 0.0755, 0.1038, 0.1038, 0.1038, 0.0472, 0.0472, 0.0472, 0.0094, 0.0094, 0
+    0, 0, 0, 0.0094, 0.0094, 0.0094, 0.0094, 0.0094, 0.0283, 0.0283, 0.0566,
+    0.0566, 0.0566, 0.0755, 0.0755, 0.0755, 0.1038, 0.1038, 0.1038, 0.0472,
+    0.0472, 0.0472, 0.0094, 0.0094, 0,
   ];
 
   for (let hour = 0; hour <= 24; hour++) {
@@ -53,11 +80,28 @@ const generateExemplaryDayData = (numChargepoints: number, arrivalMultiplier: nu
   return exemplaryDayData;
 };
 
-const calculateTotalEnergyCharged = (exemplaryDayData: {
-  time: string;
-  value: number;
-}[]) => {
+const calculateTotalEnergyCharged = (
+  exemplaryDayData: {
+    time: string;
+    value: number;
+  }[]
+) => {
   return exemplaryDayData.reduce((total, entry) => total + entry.value, 0);
+};
+
+const estimateChargingEvents = (
+  numChargepoints: number,
+  arrivalMultiplier: number,
+  carConsumption: number,
+  chargePower: number
+) => {
+  const dailyEvents = Math.floor(
+    (numChargepoints * arrivalMultiplier * carConsumption) / chargePower
+  );
+  const weeklyEvents = dailyEvents * 7;
+  const monthlyEvents = dailyEvents * 30;
+  const yearlyEvents = dailyEvents * 365;
+  return [yearlyEvents, monthlyEvents, weeklyEvents, dailyEvents];
 };
 
 const App: React.FC = () => {
@@ -70,9 +114,12 @@ const App: React.FC = () => {
   });
 
   // Mock state for output values (replace with real data later)
-  const [chargingEvents, setChargingEvents] = useState<number[]>([
-    365, 100, 30, 10,
-  ]);
+  const chargingEvents = estimateChargingEvents(
+    params.numChargepoints,
+    params.arrivalMultiplier,
+    params.carConsumption,
+    params.chargePower
+  );
 
   // Mock data for charging values per chargepoint (kW)
   const chargingData = generateChargingData(
@@ -90,8 +137,8 @@ const App: React.FC = () => {
 
   const totalEnergyConsumed = calculateTotalEnergyCharged(exemplaryDayData);
 
-    // Calculate theoretical maximum power
-    const theoreticalMaxPower = params.numChargepoints * params.chargePower * 24;
+  // Calculate theoretical maximum power
+  const theoreticalMaxPower = params.numChargepoints * params.chargePower * 24;
 
   // Handler function to update input parameters
   const handleInputChange = (key: keyof ParamsState, value: number) => {
@@ -102,17 +149,23 @@ const App: React.FC = () => {
   };
 
   return (
-    <AppContainer>
-      <Header>EV Charging Simulator</Header>
-      <InputParameters params={params} onInputChange={handleInputChange} />
-      <OutputVisualization
-        chargingData={chargingData}
-        exemplaryDayData={exemplaryDayData}
-        totalEnergyConsumed={totalEnergyConsumed}
-        theoreticalMaxPower={theoreticalMaxPower}
-        chargingEvents={chargingEvents}
-      />
-    </AppContainer>
+    <>
+      <Header>
+        <Logo src={ReonicLogo} alt="Reonic Logo" />
+        EV Charging Simulator
+      </Header>
+      <AppContainer>
+        <InputParameters params={params} onInputChange={handleInputChange} />
+        <OutputVisualization
+          chargingData={chargingData}
+          exemplaryDayData={exemplaryDayData}
+          totalEnergyConsumed={totalEnergyConsumed}
+          theoreticalMaxPower={theoreticalMaxPower}
+          chargingEvents={chargingEvents}
+        />
+      </AppContainer>
+      <Footer>Tong Yao 2024 @ Munich</Footer>
+    </>
   );
 };
 
