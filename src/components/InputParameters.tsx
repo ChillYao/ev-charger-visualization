@@ -1,4 +1,3 @@
-// components/InputParameters.tsx
 import React from "react";
 import styled from "styled-components";
 
@@ -34,8 +33,12 @@ interface InputProps {
   onInputChange: (key: keyof ParamsState, value: number) => void;
 }
 
-export const InputParameters: React.FC<InputProps> = ({ params, onInputChange }) => {
-  const { numChargepoints, arrivalMultiplier, carConsumption, chargePower } = params;
+export const InputParameters: React.FC<InputProps> = ({
+  params,
+  onInputChange,
+}) => {
+  const { numChargepoints, arrivalMultiplier, carConsumption, chargePower } =
+    params;
 
   return (
     <InputContainer>
@@ -46,7 +49,9 @@ export const InputParameters: React.FC<InputProps> = ({ params, onInputChange })
           min="1"
           max="30"
           value={numChargepoints}
-          onChange={(e) => onInputChange("numChargepoints", parseInt(e.target.value))}
+          onChange={(e) =>
+            onInputChange("numChargepoints", parseInt(e.target.value))
+          }
         />
       </Label>
 
@@ -57,7 +62,9 @@ export const InputParameters: React.FC<InputProps> = ({ params, onInputChange })
           min="20"
           max="200"
           value={arrivalMultiplier}
-          onChange={(e) => onInputChange("arrivalMultiplier", parseInt(e.target.value))}
+          onChange={(e) =>
+            onInputChange("arrivalMultiplier", parseInt(e.target.value))
+          }
         />
       </Label>
 
@@ -68,7 +75,9 @@ export const InputParameters: React.FC<InputProps> = ({ params, onInputChange })
           min="10"
           max="30"
           value={carConsumption}
-          onChange={(e) => onInputChange("carConsumption", parseInt(e.target.value))}
+          onChange={(e) =>
+            onInputChange("carConsumption", parseInt(e.target.value))
+          }
         />
       </Label>
 
@@ -79,7 +88,9 @@ export const InputParameters: React.FC<InputProps> = ({ params, onInputChange })
           min="7"
           max="50"
           value={chargePower}
-          onChange={(e) => onInputChange("chargePower", parseInt(e.target.value))}
+          onChange={(e) =>
+            onInputChange("chargePower", parseInt(e.target.value))
+          }
         />
       </Label>
     </InputContainer>
