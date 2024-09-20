@@ -16,6 +16,6 @@ export const Label = styled.label`
 `;
 
 export const Slider = styled.input`
-  width: 100%;
+  width: 50%;
   margin: 0.5rem 0;
 `;
