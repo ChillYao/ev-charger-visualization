@@ -1,7 +1,7 @@
 import React from "react";
-import ReonicLogo from "./assets/reonic-logo.svg";
-import { EvVisualization } from "./pages/EvVisualization";
-import { Header, Logo, Footer } from "./App.styles";
+import ReonicLogo from "../assets/reonic-logo.svg";
+import { EvVisualization } from "../pages/EvVisualization";
+import { Header, Logo, Footer } from "./Application.styles";
 
 const App: React.FC = () => {
   return (
