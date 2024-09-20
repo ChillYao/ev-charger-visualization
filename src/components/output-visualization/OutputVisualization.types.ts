@@ -11,6 +11,6 @@ export interface ChargingData {
   value: number;
 }
 export interface ExemplaryDayData {
-  name: string;
+  time: string;
   value: number;
 }

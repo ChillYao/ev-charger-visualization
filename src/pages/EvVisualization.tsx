@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { InputParameters } from "../components/input-parameters/InputParameters";
-import { OutputVisualization } from "../components/output-visualization/OutputVisualization";
-import { ParamsState } from "./EvVisualization.types";
-import { PageContainer } from "./EvVisualization.styles";
-import { generateMockData } from "../utils/generateMockData";
+import React, { useState } from 'react';
+import { InputParameters } from '../components/input-parameters/InputParameters';
+import { OutputVisualization } from '../components/output-visualization/OutputVisualization';
+import { ParamsState } from './EvVisualization.types';
+import { PageContainer } from './EvVisualization.styles';
+import { generateMockData } from '../utils/generateMockData';
 
 export const EvVisualization: React.FC = () => {
   // Combine input parameters into one state object
@@ -37,7 +37,7 @@ export const EvVisualization: React.FC = () => {
   );
 
   return (
-    <PageContainer>
+    <PageContainer aria-label='presentation'>
       <InputParameters params={params} onInputChange={handleInputChange} />
       <OutputVisualization
         chargingData={chargingData}
