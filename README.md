@@ -1,6 +1,6 @@
 # EV Charging Simulator
 
-:point_down: Please access this App by the following link :point_down:
+:point_down: Please access this App by the following link :point_down:  
 https://ev-charging-simulator.netlify.app/
 
 <div style="display: flex; justify-content: space-evenly;">
