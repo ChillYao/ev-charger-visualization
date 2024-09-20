@@ -1,37 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  width: 80%;
-`;
-
-const Label = styled.label`
-  font-size: 1rem;
-  color: #333;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Slider = styled.input`
-  width: 100%;
-  margin: 0.5rem 0;
-`;
-
-interface ParamsState {
-  numChargepoints: number;
-  arrivalMultiplier: number;
-  carConsumption: number;
-  chargePower: number;
-}
-
-interface InputProps {
-  params: ParamsState;
-  onInputChange: (key: keyof ParamsState, value: number) => void;
-}
+import { InputContainer, Label, Slider } from "./InputParameters.styles";
+import { InputProps } from "./InputParameters.types";
 
 export const InputParameters: React.FC<InputProps> = ({
   params,

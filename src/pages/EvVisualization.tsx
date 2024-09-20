@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { InputParameters } from "../components/InputParameters";
-import { OutputVisualization } from "../components/OutputVisualization";
+import { InputParameters } from "../components/input-parameters/InputParameters";
+import { OutputVisualization } from "../components/output-visualization/OutputVisualization";
 import { ParamsState } from "./EvVisualization.types";
 import { PageContainer } from "./EvVisualization.styles";
 import { generateMockData } from "../utils/generateMockData";
@@ -22,6 +22,7 @@ export const EvVisualization: React.FC = () => {
     }));
   };
 
+  // Generate mock data based on input parameters
   const {
     chargingData,
     exemplaryDayData,
