@@ -12,8 +12,9 @@ https://ev-charging-simulator.netlify.app/
 ## How to run it locally
 
 1. download this repository
-2. run `npm install` in project folder
-3. run `npm run dev` in project folder
+2. run `npm install` in project folder to install all the dependencies
+3. run `npm run dev` in project folder to start the app locally
+4. run `npm run test` to run all the tests
 
 ## Features
 
