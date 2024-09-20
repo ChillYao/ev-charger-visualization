@@ -1,11 +1,11 @@
 import React from "react";
+import { Section } from "../OutputVisualization.styles";
 import {
-  Section,
   InfoChartWrapper,
   KeyInfoWrapper,
   DoughnutChartWrapper,
   DoughnutChartLabel,
-} from "../OutputVisualization.styles";
+} from "./SummarySection.styles";
 import { Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 
 interface Props {

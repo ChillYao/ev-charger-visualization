@@ -1,12 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import {
-  Section,
-  SectionTitle,
-  Table,
-  TableHeader,
-  TableCell,
-} from '../OutputVisualization.styles';
+import { Section, SectionTitle } from "../OutputVisualization.styles";
+import { Table, TableHeader, TableCell } from "./EventSection.styles";
 
 export interface Props {
   chargingEvents: number[];
