@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const OutputContainer = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ export const InfoChartWrapper = styled.div`
   align-items: center;
 `;
 
-export const EnergyInfoWrapper = styled.div`
+export const KeyInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;

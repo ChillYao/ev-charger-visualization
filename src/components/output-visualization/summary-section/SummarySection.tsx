@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Section,
   InfoChartWrapper,
-  EnergyInfoWrapper,
+  KeyInfoWrapper,
   DoughnutChartWrapper,
   DoughnutChartLabel,
 } from '../OutputVisualization.styles';
@@ -29,11 +29,11 @@ export const SummarySection: React.FC<Props> = (props) => {
   return (
     <Section>
       <InfoChartWrapper>
-        <EnergyInfoWrapper>
+        <KeyInfoWrapper>
           <h3>Total Energy Consumed: {totalEnergyConsumed} kWh</h3>
           <h3>Theoretical Maximum Power: {theoreticalMaxPower} kWh</h3>
           <h3>Consumption Rate: {consumptionRate} %</h3>
-        </EnergyInfoWrapper>
+        </KeyInfoWrapper>
         <DoughnutChartWrapper>
           <ResponsiveContainer width='100%' height={200}>
             <PieChart>
