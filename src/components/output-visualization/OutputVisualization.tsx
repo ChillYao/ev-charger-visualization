@@ -1,10 +1,10 @@
-import React from 'react';
-import { OutputContainer } from './OutputVisualization.styles';
-import { OutputProps } from './OutputVisualization.types';
-import { SummarySection } from './summary-section/SummarySection';
-import { ChargePointSection } from './chargepoint-section/ChargePointSection';
-import { TimeSection } from './time-section/TimeSection';
-import { EventSection } from './event-section/EventSection';
+import React from "react";
+import { OutputContainer } from "./OutputVisualization.styles";
+import { OutputProps } from "./OutputVisualization.types";
+import { SummarySection } from "./summary-section/SummarySection";
+import { ChargePointSection } from "./chargepoint-section/ChargePointSection";
+import { TimeSection } from "./time-section/TimeSection";
+import { EventSection } from "./event-section/EventSection";
 
 export const OutputVisualization: React.FC<OutputProps> = ({
   totalEnergyConsumed,
