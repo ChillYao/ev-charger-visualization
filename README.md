@@ -1,8 +1,9 @@
 # EV Charging Simulator
 
+:point_down: Please access this App by the following link :point_down:
 https://ev-charging-simulator.netlify.app/
 
-<div>
+<div style="display: flex; justify-content: space-evenly;">
   <img src="https://i.ibb.co/ZX6bTK6/mockIpad.png" height="200">
   <img src="https://i.ibb.co/df28Jx7/mock-Laptop.png" height="200">
   <img src="https://i.ibb.co/1fKMm6D/mock-Iphone.png" height="200">
