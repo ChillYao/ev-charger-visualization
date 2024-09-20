@@ -21,6 +21,7 @@ export const InputParameters: React.FC<InputProps> = ({
           onChange={(e) =>
             onInputChange("numChargepoints", parseInt(e.target.value))
           }
+          aria-label="Number of Chargepoints"
         />
       </Label>
 
@@ -34,6 +35,7 @@ export const InputParameters: React.FC<InputProps> = ({
           onChange={(e) =>
             onInputChange("arrivalMultiplier", parseInt(e.target.value))
           }
+          aria-label="Arrival Probability Multiplier"
         />
       </Label>
 
