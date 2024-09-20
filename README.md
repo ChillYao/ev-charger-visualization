@@ -18,6 +18,8 @@ https://ev-charging-simulator.netlify.app/
 ## Features
 
 - Users can scroll the bar on the top to change the input parameters. Then the output is calculated and visualized.
+- This app is responsive.
+- The code is readable and extendable
 
 ## Technologies
 
