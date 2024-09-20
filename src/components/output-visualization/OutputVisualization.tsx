@@ -1,14 +1,12 @@
-import React from "react";
+import React from 'react';
 import {
-  BarChart,
-  Bar,
   XAxis,
   YAxis,
   Tooltip,
   ResponsiveContainer,
   LineChart,
   Line,
-} from "recharts";
+} from 'recharts';
 
 import {
   OutputContainer,
@@ -17,9 +15,10 @@ import {
   Table,
   TableHeader,
   TableCell,
-} from "./OutputVisualization.styles";
-import { OutputProps } from "./OutputVisualization.types";
-import { SummarySection } from "./summary-section/SummarySection";
+} from './OutputVisualization.styles';
+import { OutputProps } from './OutputVisualization.types';
+import { SummarySection } from './summary-section/SummarySection';
+import { ChargePointSection } from './chargepoint-section/ChargePointSection';
 
 export const OutputVisualization: React.FC<OutputProps> = ({
   totalEnergyConsumed,
@@ -29,8 +28,8 @@ export const OutputVisualization: React.FC<OutputProps> = ({
   exemplaryDayData,
 }) => {
   const doughnutData = [
-    { name: "Consumed", value: totalEnergyConsumed },
-    { name: "Remaining", value: theoreticalMaxPower - totalEnergyConsumed },
+    { name: 'Consumed', value: totalEnergyConsumed },
+    { name: 'Remaining', value: theoreticalMaxPower - totalEnergyConsumed },
   ];
 
   const consumptionRate = (
@@ -47,29 +46,17 @@ export const OutputVisualization: React.FC<OutputProps> = ({
         doughnutData={doughnutData}
       />
       {/* Charging Values per Chargepoint (kW) */}
-      <Section>
-        <SectionTitle>
-          Actual Average Charging Speed per Chargepoint (kW) in Hour (60mins)
-        </SectionTitle>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={chargingData}>
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="value" fill="#82ca9d" />
-          </BarChart>
-        </ResponsiveContainer>
-      </Section>
+      <ChargePointSection chargingData={chargingData} />
 
       {/* Exemplary Day Charging Behavior */}
       <Section>
         <SectionTitle>Actual hourly power supply (kW)</SectionTitle>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width='100%' height={300}>
           <LineChart data={exemplaryDayData}>
-            <XAxis dataKey="time" />
+            <XAxis dataKey='time' />
             <YAxis />
             <Tooltip />
-            <Line type="monotone" dataKey="value" stroke="#8884d8" />
+            <Line type='monotone' dataKey='value' stroke='#8884d8' />
           </LineChart>
         </ResponsiveContainer>
       </Section>
