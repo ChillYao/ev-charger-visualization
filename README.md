@@ -3,7 +3,7 @@
 :point_down: Please access this App by the following link :point_down:  
 https://ev-charging-simulator.netlify.app/
 
-<div style="display: flex; justify-content: space-evenly;">
+<div style="display:flex; justify-content:space-evenly;">
   <img src="https://i.ibb.co/ZX6bTK6/mockIpad.png" height="200">
   <img src="https://i.ibb.co/df28Jx7/mock-Laptop.png" height="200">
   <img src="https://i.ibb.co/1fKMm6D/mock-Iphone.png" height="200">
@@ -24,10 +24,10 @@ https://ev-charging-simulator.netlify.app/
 
 ## Technologies
 
-- React
-- Typescript
-- Storybook
-- Vite
-- Vitest
-- React Testing Library
-- Netlify
+- React https://react.dev/
+- Typescript https://www.typescriptlang.org/
+- Styled-Component https://styled-components.com/
+- Vite https://vitejs.dev/
+- Vitest https://vitest.dev/
+- React Testing Library https://testing-library.com/
+- Netlify https://www.netlify.com/
